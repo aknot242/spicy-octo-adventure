@@ -3,7 +3,7 @@
 # ---------------------------------------------------------------------------- #
 resource "aws_eks_cluster" "eks-tf" {
 
- name = format("%s-eks-cluster-%s", var.project_prefix, var.build_suffix)
+ name = local.cluster_name
  role_arn = aws_iam_role.eks-iam-role.arn
 
  vpc_config {

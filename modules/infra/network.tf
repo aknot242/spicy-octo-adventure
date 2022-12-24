@@ -9,6 +9,7 @@ module "vpc" {
   azs                  = var.azs
   enable_dns_support = true
   enable_dns_hostnames = true
+
   tags = {
     resource_owner = var.resource_owner
     Name          = "${var.project_prefix}-vpc-${var.build_suffix}"

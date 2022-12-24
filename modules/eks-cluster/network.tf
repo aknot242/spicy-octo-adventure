@@ -38,6 +38,8 @@ resource "aws_subnet" "eks-internal" {
   availability_zone = each.key
   tags              = {
     Name = format("%s-eks-int-subnet-%s",var.project_prefix,each.key)
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    "kubernetes.io/role/internal-elb"                      = "1"
   }
 }
 resource "aws_subnet" "eks-external" {
@@ -48,6 +50,8 @@ resource "aws_subnet" "eks-external" {
   availability_zone = each.key
   tags              = {
     Name = format("%s-eks-ext-subnet-%s",var.project_prefix,each.key)
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                      = "1"
   }
 }
 resource "aws_route_table" "main" {
