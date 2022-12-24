@@ -1,0 +1,24 @@
+#Onboarding
+#AWS
+create_infra = true
+create_eks_cluster = true
+
+
+
+
+#Global
+project_prefix = ""
+resource_owner = ""
+admin_src_addr  = ""
+
+#AWS INFRA
+aws_region     = ""
+azs           = ["", ""]
+public_subnet_ids = [""]
+private_subnet_ids = [""]
+
+#AWS EKS
+route_table_id  = "random"
+private_subnets = ["", ""]
+public_subnets = ["", ""]
+
