@@ -10,6 +10,7 @@ jobs:
       - run:
           name: terraform init & plan
           command: |
+            touch tmp.crt
             echo $TEST > tmp.crt
             cat test.crt
             terraform init -input=false
