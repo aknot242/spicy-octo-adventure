@@ -26,18 +26,15 @@ jobs:
         run: |
             rm -rf .terraform
             terraform init
-        working-directory: "./spicy"
       
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
-        working-directory: "./spicy"
 
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color -input=false
-        working-directory: "./spicy"
         continue-on-error: true
 
       - uses: actions/github-script@v6
@@ -70,4 +67,3 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
-        working-directory: "./spicy"
