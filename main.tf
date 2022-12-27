@@ -1,4 +1,4 @@
-
+/*
 # The configuration for the `remote` backend.
 terraform {
     backend "remote" {
@@ -10,7 +10,7 @@ terraform {
         }
    }
 }
-
+*/
 
 
 provider "aws" {
