@@ -1,4 +1,4 @@
-/*
+
 # The configuration for the `remote` backend.
 terraform {
     backend "remote" {
@@ -6,11 +6,11 @@ terraform {
         organization = "knowbase"
         # The name of the Terraform Cloud workspace to store Terraform state files in.
         workspaces {
-          name = "bug-free-eureka"
+          name = "spicy-octo-adventure"
         }
    }
 }
-*/
+
 
 
 provider "aws" {
