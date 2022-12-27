@@ -40,7 +40,6 @@ jobs:
             }
           }
           EOF
-          echo ${{secret.P12}} | base64 -d > test.p12
 
       - name: Terraform Init
         id: init
