@@ -1,6 +1,6 @@
 #Onboarding
 #AWS
-create_infra = true
+create_infra = false
 create_eks_cluster = false
 
 
