@@ -7,7 +7,7 @@ create_eks_cluster = true
 
 
 #Global
-project_prefix = "tf-cd-spicy-test"
+project_prefix = "tf-cd-spicy"
 resource_owner = "cdelano"
 admin_src_addr  = "50.53.21.238/32"
 
