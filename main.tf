@@ -18,12 +18,12 @@ module "onboarding" {
     create_infra = var.create_infra
     aws_region = var.aws_region
     azs = var.azs
+    vpc_id = var.vpc_id
+    vpc_cidr_block = var.vpc_cidr_block
     #Deploy EKS
     create_eks_cluster = var.create_eks_cluster
-    route_table_id = var.route_table_id
-    private_subnets = var.private_subnets
-    public_subnets = var.public_subnets
-    public_subnet_ids = var.public_subnet_ids
-    private_subnet_ids = var.private_subnet_ids
+    eks_cidr = var.eks_cidr
+    vpc_main_route_table_id = var.vpc_main_route_table_id
+    nat_gateway_id = var.nat_gateway_id
     admin_src_addr = var.admin_src_addr
 }

@@ -1,8 +1,4 @@
 #INFRA Outputs
-output "vpc_cidr_block" {
-  description = "CIDR Block"
-  value       = module.onboarding.vpc_cidr_block
-}
 output "vpc_id" {
   description = "VPC ID"
   value       = module.onboarding.vpc_id

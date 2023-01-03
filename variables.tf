@@ -23,6 +23,28 @@ variable "resource_owner" {
   default     = "myName"
 }
 #AWS Infra
+variable vpc_id {
+  description = "Specify if create_infra = false"
+  type = string
+}
+variable vpc_cidr_block {
+  description = "the CIDR block for the Virtual Private Cloud (VPC) of the deployment"
+  default = "10.0.0.0/16"
+  type    = string
+  validation {
+    condition = can(regex("^([0-9]{1,3}.){3}[0-9]{1,3}($|/(16|24))$",var.vpc_cidr_block))
+    error_message = "The value must conform to a CIDR block format."
+  }
+}
+variable eks_cidr {
+  description = "the CIDR block for the EKS deployment"
+  default = "10.0.2.0/16"
+  type    = string
+  validation {
+    condition = can(regex("^([0-9]{1,3}.){3}[0-9]{1,3}($|/(16|24))$",var.eks_cidr))
+    error_message = "The value must conform to a CIDR block format."
+  }
+}
 variable "aws_region" {
   description = "aws region"
   type        = string
@@ -33,15 +55,15 @@ variable azs {
   type        = list
   default     = ["us-west-2a", "us-west-2b"]
 }
+variable "nat_gateway_id" {
+  type = string
+  description = "NAT GW ID specify when create_infra is set to false"
+}
+variable "vpc_main_route_table_id" {}
 variable "admin_src_addr" {
   type        = string
   description = "Allowed Admin source IP prefix"
   default     = "0.0.0.0/0"
 }
-#test
-variable "public_subnets" {}
-variable "private_subnets" {}
-variable "public_subnet_ids" {}
-variable "private_subnet_ids" {}
-variable "route_table_id" {}
+
 

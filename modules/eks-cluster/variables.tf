@@ -18,6 +18,11 @@ variable "admin_src_addr" {
   description = "Allowed Admin source IP prefix"
   default     = "0.0.0.0/0"
 }
+variable "create_infra" {
+  type        = bool
+  default     = false
+  description = "Set to true to create infra"
+}
 
 #AWS
 variable "vpc_id" {
@@ -25,15 +30,9 @@ variable "vpc_id" {
   description = "The AWS network VPC ID"
   default     = null
 }
-variable "vpc_cidr_block" {
-  type        = string
-  description = "The AWS network VPC CIDR block"
-  default     = null
-}
-variable "vpc_cidr" {
-  type        = string
-  default     = "10.1.0.0/16"
-  description = "CIDR IP Address range of the VPC"
+variable "nat_gateway_id" {
+  type = string
+  description = "NAT GW ID specify when create_infra is set to false"
 }
 variable "vpc_main_route_table_id" {
   type = string
@@ -57,10 +56,6 @@ variable "private_cidr_blocks" {
 variable "public_subnet_ids" {
   type = list(any)
 }
-variable "private_subnet_ids" {
-  type = list(any)
-}
-
 variable "azs" {
   description = "Availability Zones"
   type        = list
