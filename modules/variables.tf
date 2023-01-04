@@ -21,7 +21,7 @@ variable "create_infra" {
 variable "create_nat_gateway" {
   type        = bool
   default     = false
-  description = "Programatically set to false if NG has been created in another module"
+  description = "Set to true to if deploying to an existing vpc (create_infra = false) and require a ngw"
 }
 variable "create_eks_cluster" {
   type        = bool
@@ -45,6 +45,10 @@ variable azs {
   description = "Availability Zones"
   type        = list
   default     = ["us-west-1a", "us-west-1b"]
+}
+variable "public_subnet_ids" {
+  type = list(any)
+  description = "Provide if create_infra is set to false and create_nat_gateway is true"
 }
 variable "nat_gateway_id" {
   type = string

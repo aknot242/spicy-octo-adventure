@@ -21,7 +21,7 @@ module "eks_cluster" {
   vpc_id = local.vpc_id
   azs = var.azs
   vpc_main_route_table_id = local.vpc_main_route_table_id
-  create_infra = var.create_infra
+  create_nat_gateway = local.create_nat_gateway
   nat_gateway_id = var.nat_gateway_id
   admin_src_addr = var.admin_src_addr
   public_subnet_ids = local.public_subnet_ids

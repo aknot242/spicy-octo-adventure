@@ -1,7 +1,8 @@
 #Onboarding
 #AWS
-create_infra = true
-create_eks_cluster = false
+create_infra = false
+create_eks_cluster = true
+create_nat_gateway = true
 
 #Global
 project_prefix = "tf-cd-spicy"
@@ -16,9 +17,13 @@ vpc_cidr_block = "10.0.0.0/16"
 
 
 #AWS EKS
-vpc_id = "vpc-0b071aeb0b5299579"
+#Provide if using an existing VPC
+vpc_id = "vpc-02545726fdc44fece"
 eks_cidr = "10.0.2.0/24"
-vpc_main_route_table_id  = "rtb-0248fa43df0ab7072"
-nat_gateway_id = "nat-0de130c25447d505c"
+vpc_main_route_table_id  = "rtb-03bf89c6960033143"
+#Provide if create_ngw is false
+nat_gateway_id = "ngw ID"
+#Provide if create_infra is set to false and create_ngw is true
+public_subnet_ids = ["subnet-0481ec9c1da0d15bd","subnet-0bec37c7fa5eeabfb"]
 
 

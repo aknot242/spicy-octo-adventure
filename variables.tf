@@ -10,6 +10,11 @@ variable "create_eks_cluster" {
   default     = false
   description = "Set to true to create EKS cluster for Monitoring and Juiceshop modules"
 }
+variable "create_nat_gateway" {
+  type        = bool
+  default     = false
+  description = "Set to true to if deploying to an existing vpc (create_infra = false) and require a ngw"
+}
 
 #Global
 variable "project_prefix" {
@@ -22,6 +27,7 @@ variable "resource_owner" {
   description = "owner of the deployment, for tagging purposes"
   default     = "myName"
 }
+
 #AWS Infra
 variable vpc_id {
   description = "Specify if create_infra = false"
@@ -59,7 +65,14 @@ variable "nat_gateway_id" {
   type = string
   description = "NAT GW ID specify when create_infra is set to false"
 }
-variable "vpc_main_route_table_id" {}
+variable "vpc_main_route_table_id" {
+  type = string
+  description = "VPC route table ID"
+}
+variable "public_subnet_ids" {
+  type = list(any)
+  description = "Provide if infra is set to false and create_nat_gateway is set to true"
+}
 variable "admin_src_addr" {
   type        = string
   description = "Allowed Admin source IP prefix"

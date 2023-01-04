@@ -1,13 +1,14 @@
 
+
 # Create Elastic IP
 resource "aws_eip" "main" {
-  count = var.create_infra ? 1 : 0
+  count = var.create_nat_gateway ? 1 : 0
   vpc              = true
 }
 
 # Create NAT Gateway
 resource "aws_nat_gateway" "main" {
-  count = var.create_infra ? 1 : 0
+  count = var.create_nat_gateway ? 1 : 0
   allocation_id = aws_eip.main[0].id
   subnet_id     = var.public_subnet_ids[0]
 
@@ -58,7 +59,7 @@ resource "aws_subnet" "eks-external" {
   }
 }
 resource "aws_route_table" "main" {
-  vpc_id =var.vpc_id
+  vpc_id = var.vpc_id
   route {
     cidr_block = "0.0.0.0/0"
     nat_gateway_id = local.nat_gateway_id

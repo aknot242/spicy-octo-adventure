@@ -18,11 +18,6 @@ variable "admin_src_addr" {
   description = "Allowed Admin source IP prefix"
   default     = "0.0.0.0/0"
 }
-variable "create_infra" {
-  type        = bool
-  default     = false
-  description = "Set to true to create infra"
-}
 
 #AWS
 variable "vpc_id" {
@@ -56,6 +51,7 @@ variable "private_cidr_blocks" {
 variable "public_subnet_ids" {
   type = list(any)
 }
+
 variable "azs" {
   description = "Availability Zones"
   type        = list
@@ -87,10 +83,15 @@ variable "eks_addons" {
 }
 
 #Onboarding
+variable "create_nat_gateway" {
+  type        = bool
+  default     = false
+  description = "Set to true to if deploying to an existing vpc (create_infra = false) and require a ngw"
+}
 variable "create_eks_cluster" {
   type        = bool
   default     = false
-  description = "Set to true to create EKS cluster for Monitoring and Juiceshop modules"
+  description = "Set to true to create EKS cluster"
 }
 
 

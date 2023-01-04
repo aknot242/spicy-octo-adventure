@@ -16,6 +16,7 @@ module "onboarding" {
     build_suffix = random_id.build_suffix.hex
     #Deploy AWS infra(vpc, sg, etc)
     create_infra = var.create_infra
+    create_nat_gateway = var.create_nat_gateway
     aws_region = var.aws_region
     azs = var.azs
     vpc_id = var.vpc_id
@@ -24,6 +25,7 @@ module "onboarding" {
     create_eks_cluster = var.create_eks_cluster
     eks_cidr = var.eks_cidr
     vpc_main_route_table_id = var.vpc_main_route_table_id
+    public_subnet_ids = var.public_subnet_ids
     nat_gateway_id = var.nat_gateway_id
     admin_src_addr = var.admin_src_addr
 }
