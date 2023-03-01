@@ -12,7 +12,7 @@ admin_src_addr  = "50.53.21.238/32"
 
 aws_region     = "us-west-2"
 azs           = ["us-west-2a", "us-west-2b"]
-vpc_cidr_block = "10.0.0.0/18"
+vpc_cidr_block = "10.0.0.0/16"
 
 
 #AWS EKS - Only needed if using an existing VPC
