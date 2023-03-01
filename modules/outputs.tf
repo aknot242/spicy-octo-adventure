@@ -6,7 +6,9 @@ output "vpc_id" {
 output "eks_cidr" {
   value = var.create_infra ? module.infra[0].eks_cidr : var.eks_cidr
 }
-
+output "public_subnet_ids" {
+  value = var.create_infra ? module.infra[0].public_subnet_ids : var.public_subnet_ids
+}
 
 #EKS Outputs
 output "cluster_id" {
