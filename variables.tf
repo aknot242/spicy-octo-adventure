@@ -46,11 +46,14 @@ variable eks_cidr {
   description = "the CIDR block for the EKS deployment"
   default = "10.0.2.0/16"
   type    = string
+/*
   validation {
     condition = can(regex("^([0-9]{1,3}.){3}[0-9]{1,3}($|/(16|24))$",var.eks_cidr))
     error_message = "The value must conform to a CIDR block format."
   }
+*/
 }
+
 variable "aws_region" {
   description = "aws region"
   type        = string
