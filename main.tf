@@ -25,7 +25,7 @@ module "onboarding" {
     create_eks_cluster = var.create_eks_cluster
     eks_cidr = var.eks_cidr
     vpc_main_route_table_id = var.vpc_main_route_table_id
-    public_subnet_ids = var.public_subnet_ids
+    #public_subnet_ids = var.public_subnet_ids
     nat_gateway_id = var.nat_gateway_id
     admin_src_addr = var.admin_src_addr
 }
