@@ -20,3 +20,4 @@ vpc_id = ""
 eks_cidr = ""
 vpc_main_route_table_id  = ""
 nat_gateway_id = ""
+public_subnet_ids = [ "blah" ]
