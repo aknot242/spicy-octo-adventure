@@ -69,12 +69,10 @@ variable "vpc_main_route_table_id" {
   type = string
   description = "VPC route table ID"
 }
-/*
 variable "public_subnet_ids" {
   type = list(any)
   description = "Provide if infra is set to false and create_nat_gateway is set to true"
 }
-*/
 variable "admin_src_addr" {
   type        = string
   description = "Allowed Admin source IP prefix"
