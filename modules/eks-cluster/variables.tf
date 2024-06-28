@@ -65,19 +65,19 @@ variable "eks_addons" {
   default = [
     {
       name    = "kube-proxy"
-      version = "v1.23.13-eksbuild.2"
+      version = "v1.30.0-eksbuild.3"
     },
     {
       name    = "vpc-cni"
-      version = "v1.12.0-eksbuild.1"
+      version = "v1.18.2-eksbuild.1"
     },
     {
       name    = "coredns"
-      version = "v1.8.7-eksbuild.3"
+      version = "v1.11.1-eksbuild.9"
     },
     {
       name    = "aws-ebs-csi-driver"
-      version = "v1.13.0-eksbuild.3"
+      version = "v1.31.0-eksbuild.1"
     }
   ]
 }
@@ -93,13 +93,3 @@ variable "create_eks_cluster" {
   default     = false
   description = "Set to true to create EKS cluster"
 }
-
-
-
-
-
-
-
-
-
-

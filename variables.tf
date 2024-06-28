@@ -74,7 +74,7 @@ variable "vpc_main_route_table_id" {
 }
 variable "public_subnet_ids" {
   type = list(any)
-  description = "Provide if infra is set to false and create_nat_gateway is set to true"
+  description = "Existing subnet ids. Provide if create_infra is set to false and create_nat_gateway is set to true"
 }
 variable "admin_src_addr" {
   type        = string

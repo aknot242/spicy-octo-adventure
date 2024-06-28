@@ -3,7 +3,7 @@
 # Create VPC, subnets, route tables, and IGW
 module "vpc" {
   source               = "terraform-aws-modules/vpc/aws"
-  version              = "~> 3.0"
+  version              = "~> 5.0"
   name                 = format("%s-vpc-%s",var.project_prefix,var.build_suffix)
   cidr                 = var.vpc_cidr_block
   azs                  = var.azs
@@ -11,7 +11,6 @@ module "vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    resource_owner = var.resource_owner
     Name = format("%s-vpc-%s",var.project_prefix,var.build_suffix)
   }
 }
