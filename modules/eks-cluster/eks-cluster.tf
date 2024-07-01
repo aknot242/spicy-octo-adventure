@@ -28,9 +28,14 @@ resource "aws_eks_addon" "cluster-addons" {
   for_each                    = { for addon in var.eks_addons : addon.name => addon }
   cluster_name                = aws_eks_cluster.eks-tf.id
   addon_name                  = each.value.name
-  addon_version               = each.value.version
   resolve_conflicts_on_create = "OVERWRITE"
   # resolve_conflicts_on_update = "OVERWRITE"
+}
+
+ resource "aws_eks_addon" "ebs_csi_driver-addon" {
+  cluster_name             = aws_eks_cluster.eks-tf.name
+  addon_name               = "aws-ebs-csi-driver"
+  service_account_role_arn = aws_iam_role.ebs_csi_driver.arn
 }
 
 resource "aws_eks_node_group" "private-node-group-1-tf" {
